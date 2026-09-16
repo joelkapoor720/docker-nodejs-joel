@@ -23,12 +23,6 @@ Die benötigten Abhängigkeiten werden mit folgendem Befehl installiert:
 npm install
 ```
 
-Unter Windows PowerShell kann alternativ dieser Befehl verwendet werden:
-
-```powershell
-npm.cmd install
-```
-
 ### 3. Docker installieren
 
 Installiere Docker Desktop und stelle sicher, dass Docker Desktop läuft.
@@ -67,7 +61,9 @@ Die Anwendung läuft danach im Docker-Container.
 
 Öffne im Browser:
 
+```text
 http://localhost:3000
+```
 
 Dort kann die ToDo-Anwendung verwendet werden.
 
