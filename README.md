@@ -1,48 +1,96 @@
-# **Thema:** Erstellen einer ToDo-Applikation mit Markdown, Git, GitHub und Docker
+# Docker Node.js ToDo-App
 
-In dieser Abschlussaufgabe werden alle erlernten Fähigkeiten in den Bereichen **Markdown**, **Git**, **GitHub** und **Docker** kombiniert. Die Aufgabe besteht darin, eine ToDo-Applikation zu erstellen und diese in einem Docker-Container bereitzustellen.
+Eine einfache ToDo-Anwendung mit Node.js, die in einem Docker-Container ausgeführt wird.
 
-### **Aufgabenstellung:**
+## Installation
 
-1. **GitHub-Fork erstellen:**
-   - Erstelle einen **Fork** des folgenden GitHub-Repositories: [docker-nodejs-sample](https://github.com/ICT-BLJ/docker-nodejs-sample).
-   - Clone deinen Fork lokal auf deinen Computer.
+### 1. Repository klonen
 
-2. **Erstellen einer README-Datei in Markdown:**
-   - Erstelle eine **README.md** Datei im Root-Verzeichnis des Projekts.
-   - Die README soll alle Schritte zur **Installation des Projekts** enthalten. Dazu gehören:
-     - Klonen des Repositories
-     - Installation der notwendigen Pakete
-     - Docker-Konfiguration und -Installation
-     - Starten der Applikation in einem Docker-Container
-   - Nutze [Markdown](https://www.markdownguide.org/cheat-sheet/) für die Struktur und Formatierung der Datei.
+Repository von GitHub klonen:
 
-3. **Dokumentation der Vorgehensweise:**
-   - Verfasse eine vollständige **Dokumentation in Word**, in der die Arbeitsschritte beschrieben werden. Diese Schritte sind:
-     - Klonen des Repositories
-     - Einrichtung der Entwicklungsumgebung
-     - Erstellung der README.md
-     - Verwendung von Git (Commit, Push)
-     - Erstellung und Nutzung von Docker-Containern
-   - Verwende die während des Office-Kurses erarbeiteten Kenntnisse für das Erstellen dieses Dokuments.
+```bash
+git clone https://github.com/joelkapoor720/docker-nodejs-joel.git
+cd docker-nodejs-joel
+```
 
-4. **Dockerize das Node.js-Projekt:**
-   - Verfolge die Anleitung unter [docs.docker.com](https://docs.docker.com/guides/language/nodejs/containerize/) ab dem Schritt **"Initialize Docker assets"**.
-   - Dein Ziel ist es, das Projekt in einem Docker-Container lauffähig zu machen, sodass am Ende eine **ToDo-Applikation** in einem Docker-Container bereitsteht.
+### 2. Abhängigkeiten installieren
 
-5. **Git-Workflows:**
-   - Arbeite mit **Git**, um Änderungen regelmäßig zu committen und auf GitHub zu pushen.
-   - Verwende sinnvolle Commit-Nachrichten, um deinen Fortschritt zu dokumentieren.
-   - Stelle sicher, dass dein finaler Stand auf GitHub vorhanden ist.
+Node.js muss installiert sein.
 
-6. **Abgabe:**
-   - **Dokumentation:** Lade die erstellte Word-Dokumentation (inkl. Screenshots und Beschreibung der Schritte) in dein Repository hoch.
-   - **GitHub-Link:** Stelle den Link zu deinem GitHub-Repository bereit, das den finalen Stand des Projekts enthält.
+Die benötigten Abhängigkeiten werden mit folgendem Befehl installiert:
 
-### **Ziele der Aufgabe:**
-- Anwendung und Vertiefung von Git und GitHub.
-- Verfassen einer strukturierten Anleitung mit Markdown.
-- Containerisieren einer Node.js-Anwendung mit Docker.
-- Dokumentation des gesamten Prozesses in einem Word-Dokument.
-  
-Viel Erfolg bei der Umsetzung!
+```bash
+npm install
+```
+
+Unter Windows PowerShell kann alternativ dieser Befehl verwendet werden:
+
+```powershell
+npm.cmd install
+```
+
+### 3. Docker installieren
+
+Installiere Docker Desktop und stelle sicher, dass Docker Desktop läuft.
+
+Überprüfe die Docker-Installation mit:
+
+```bash
+docker --version
+```
+
+Zusätzlich kann Docker mit folgendem Befehl getestet werden:
+
+```bash
+docker run hello-world
+```
+
+### 4. Docker-Image erstellen
+
+Im Projektordner wird das Docker-Image mit dem `Dockerfile` erstellt:
+
+```bash
+docker build -t docker-nodejs-joel .
+```
+
+### 5. Docker-Container starten
+
+Starte anschließend einen Container mit:
+
+```bash
+docker run --name todo-app -p 3000:3000 docker-nodejs-joel
+```
+
+Die Anwendung läuft danach im Docker-Container.
+
+### 6. Anwendung öffnen
+
+Öffne im Browser:
+
+http://localhost:3000
+
+Dort kann die ToDo-Anwendung verwendet werden.
+
+### 7. Laufenden Container überprüfen
+
+Mit folgendem Befehl kann überprüft werden, ob der Container läuft:
+
+```bash
+docker ps
+```
+
+Der Container sollte den Namen `todo-app` haben und den Port `3000` verwenden.
+
+### 8. Container stoppen
+
+Um den Container zu stoppen:
+
+```bash
+docker stop todo-app
+```
+
+Um den Container später wieder zu starten:
+
+```bash
+docker start todo-app
+```
